@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Practica2Ev.ViewModel"
+             x:Class="Practica2Ev.Views.VistaRegistro"
+             Title="VistaRegistro">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    
+    <ContentPage.BindingContext>
+        <vm:Validator/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout BackgroundColor="AntiqueWhite">
+        <Label TextColor="Black"
+         Text="R E G I S T R O"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" 
+         FontSize="Header"/>
+        <VerticalStackLayout Margin="100" Spacing="10">
+            <Label Text="Nombre" TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Entry x:Name="Nombre" Text="{Binding Nombre}" BackgroundColor="DimGray"/>
+            <Label Text="Nombre Usuario"  TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Entry x:Name="NombreUsuario" Text="{Binding NombreUsuario}" BackgroundColor="DimGray"/>
+            <Label Text="Contraseña"  TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Entry x:Name="Password" Text="{Binding Password}"  BackgroundColor="DimGray"/>
+            <Label Text="Confirmar Contraseña"  TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Entry x:Name="ConfirmacionContraseña" Text="{Binding ConfirmacionContrasena}" BackgroundColor="DimGray"/>
+            <Label Text="Edad"  TextColor="Black">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Entry x:Name="Edad"  Text="{Binding Edad}" BackgroundColor="DimGray"/>
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="10">
+                <Button Text="Registrarme!" BorderColor="DimGrey" BorderWidth="2" TextColor="Black" BackgroundColor="WhiteSmoke" Command="{Binding validarCommand}" Clicked="Button_Clicked"/>
+                <Button Text="Ir a Inicio de Sesión"  BorderColor="DimGrey" BorderWidth="2" TextColor="Black" BackgroundColor="WhiteSmoke" Command="{Binding cambiaraAVistaLoginCommand}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

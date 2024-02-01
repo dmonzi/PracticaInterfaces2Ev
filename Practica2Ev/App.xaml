@@ -1,0 +1,24 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Practica2Ev"
+             x:Class="Practica2Ev.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Plantilla del diseño de la app (cuerpo + footer) -->
+            <ControlTemplate x:Key="plantilla">
+                <Grid RowDefinitions="*,auto" BackgroundColor="AntiqueWhite">
+                    <ContentPresenter Grid.Row="0"/>
+                    <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Start" Margin="30">
+                        <ImageButton Clicked="Button_Clicked" Source="linkedin.png"/>
+                    </HorizontalStackLayout>
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+ 

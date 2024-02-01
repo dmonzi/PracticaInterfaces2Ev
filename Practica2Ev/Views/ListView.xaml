@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<temp:Plantilla xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="Practica2Ev.Views.ListView"
+                xmlns:temp="clr-namespace:Practica2Ev.Templates">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Menu">
+            <MenuFlyoutItem Text="Favoritos" Clicked="chngFav"/>
+            <MenuFlyoutItem Text="Cerrar Sesión" Clicked="cerrar"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <VerticalStackLayout Padding="100" HorizontalOptions="Center" VerticalOptions="Center" Margin="10" BackgroundColor="AntiqueWhite">
+        <CollectionView x:Name="listadoChistes">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <temp:TemplateChiste/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <HorizontalStackLayout Spacing="20" Margin="10">
+            <Button Text="Siguiente Chiste" Clicked="siguiente"/>
+            <Button x:Name="favorito" Text="♡" Clicked="addFavoritos" TextColor="Red"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</temp:Plantilla>

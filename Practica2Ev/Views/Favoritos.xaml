@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<temp:Plantilla xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="Practica2Ev.Views.Favoritos"
+                xmlns:temp="clr-namespace:Practica2Ev.Templates">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Menu">
+            <MenuFlyoutItem Text="Chistes" Clicked="chngPrincipal"/>
+            <MenuFlyoutItem Text="Favoritos" Clicked="chngFav"/>
+            <MenuFlyoutItem Text="Cerrar Sesión" Clicked="cerrar"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <VerticalStackLayout BackgroundColor="AntiqueWhite">
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="10">
+            <SearchBar x:Name="buscador" SearchButtonPressed="buscador_SearchButtonPressed" WidthRequest="300" BackgroundColor="DimGray" TextColor="Black"/>
+            <Picker SelectedIndexChanged="Picker_SelectedIndexChanged" BackgroundColor="DimGray" TextColor="Black">
+                <Picker.Items>
+                    <x:String>Setup</x:String>
+                    <x:String>Delivery</x:String>
+                    <x:String>Any</x:String>
+                </Picker.Items>
+            </Picker>
+        </HorizontalStackLayout>
+
+        <ScrollView Orientation="Vertical">
+            <CollectionView x:Name="listadoChistes" WidthRequest="500">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <temp:ChisteFav/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+
+</temp:Plantilla>
